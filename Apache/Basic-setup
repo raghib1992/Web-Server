@@ -1,0 +1,73 @@
+Connectivity Tips
+    ping the server
+    Reliable network Connection
+    Static IP address 
+    Port 80 open (443)
+    Make sure the system is always available
+
+Apache Web Server Software
+    Http server Software
+        Open Source 
+        available from Apache Foundation
+
+    httpd - Hypertext Transfer Protocaol Daemon
+        also appears as 'apache' and 'apache2'
+
+
+INSTALL APACHE Server
+    sudo yum install httpd -y
+    sudo systemctl start httpd
+    sudo systemctl status httpd
+
+SITE
+    Site
+        Collection of files grouped together under a name
+        server can host one or more sites
+
+    Main configuration files
+        /etc/httpd/conf/httpd.conf
+            ServerRoot   #where is set the location the server conf and log files
+            Listen 80
+
+Deploy SITE
+    Server name
+        Register domain name
+        Create an A record for the domain > Server IP
+        Consider adding aCNAME for www > domain
+        Managing a Hosted Website
+        Computer Science Principal: The Internet
+
+        Internal to an organisation
+            Get an internal DNS record > server IP
+
+        Hostname
+            hostnamectl set-hostname example.com 
+            /etc/hosts: 12.324.55.67 example.com    
+            or
+            httpd.conf ServerNAme example.com
+
+        SELinux
+            Security Enhanced Linux
+                Extra Layer of security independent from permissions
+                up and runninig with Centos Linux
+            restore sets the context approprietely
+                ls -lhz
+
+Log
+    # Access Log
+        sudo ls -lh /etc/httpd/logs
+        sudo ls -lh /var/log/httpd
+        tail /var/log/httpd/access_log
+        tail /var/log/httd/error_log
+ Modules
+  httpd -l
+  httpd -M 
+
+Troubleshoting
+    sudo systemctl status httpd
+    # check port 80 is listening
+    ss -an 
+    curl localhost
+    
+    
+
